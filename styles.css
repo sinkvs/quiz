@@ -1,0 +1,32 @@
+body {
+    background-color: purple;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: black;
+    font-style: italic;
+}
+
+button {
+    background-color: lightpink;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+    font-style: italic;
+}
+
+button:hover {
+    background-color: deeppink;
+}
