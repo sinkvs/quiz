@@ -1,3 +1,10 @@
 document.getElementById('continueButton').addEventListener('click', function() {
-    alert('Тестирование продолжается!');
+    const initialContent = document.getElementById('initialContent');
+    const welcomeContent = document.getElementById('welcomeContent');
+
+    initialContent.classList.add('hidden');
+
+    setTimeout(() => {
+        welcomeContent.classList.remove('hidden');
+    }, 500);
 });
