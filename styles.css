@@ -14,9 +14,16 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #FFFFFF;
+    transition: opacity 0.5s, transform 0.5s;
 }
 
-h1 {
+.hidden {
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none;
+}
+
+h1, h2 {
     color: #333;
     font-style: italic;
     margin-bottom: 20px;
@@ -40,4 +47,10 @@ button:hover {
 
 button:active {
     transform: scale(0.95);
+}
+
+#leoImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
