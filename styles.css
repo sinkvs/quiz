@@ -6,6 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Helvetica Neue', sans-serif;
+    overflow: hidden;
 }
 
 .container {
@@ -17,16 +18,9 @@ body {
     transition: opacity 0.5s, transform 0.5s;
 }
 
-.hidden {
-    opacity: 0;
-    transform: translateY(-20px);
-    pointer-events: none;
-}
-
 h1, h2 {
     color: #333;
     font-style: italic;
-    margin-bottom: 20px;
 }
 
 button {
@@ -49,8 +43,15 @@ button:active {
     transform: scale(0.95);
 }
 
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none; /* Предотвращает взаимодействие с элементом */
+}
+
 #leoImage {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
+    margin-top: 20px;
 }
