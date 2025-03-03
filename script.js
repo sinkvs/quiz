@@ -1,10 +1,15 @@
-document.getElementById('continueButton').addEventListener('click', function() {
+document.addEventListener('DOMContentLoaded', function() {
+    const continueButton = document.getElementById('continueButton');
     const initialContent = document.getElementById('initialContent');
     const welcomeContent = document.getElementById('welcomeContent');
 
-    initialContent.classList.add('hidden');
+    continueButton.addEventListener('click', function() {
+        console.log('Button clicked'); // Отладочное сообщение
 
-    setTimeout(() => {
-        welcomeContent.classList.remove('hidden');
-    }, 500);
+        initialContent.classList.add('hidden');
+
+        setTimeout(() => {
+            welcomeContent.classList.remove('hidden');
+        }, 500);
+    });
 });
