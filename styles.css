@@ -87,6 +87,65 @@ body {
     position: relative;
 }
 
+.question-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #333;
+    font-style: italic;
+    margin: 0;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+button.option {
+    background-color: #FFC0CB;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-style: italic;
+    flex: 1;
+    margin: 5px;
+}
+
+button.option:hover {
+    background-color: #FF69B4;
+    transform: scale(1.05);
+}
+
+button.option:active {
+    transform: scale(0.95);
+}
+
+button.option.wrong {
+    animation: wrongBlink 0.5s 3;
+}
+
+button.option.correct {
+    animation: correctBlink 0.5s 3;
+}
+
+@keyframes wrongBlink {
+    0% { background-color: #FFC0CB; }
+    50% { background-color: #FF6347; }
+    100% { background-color: #FFC0CB; }
+}
+
+@keyframes correctBlink {
+    0% { background-color: #FFC0CB; }
+    50% { background-color: #32CD32; }
+    100% { background-color: #FFC0CB; }
+}
+
 #yesImage, #noImage {
     position: absolute;
     height: 200px;
@@ -94,20 +153,22 @@ body {
     z-index: 2;
     opacity: 0;
     pointer-events: none;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 #yesImage {
-    left: -250px;
-}
-
-#noImage {
-    right: -250px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translateX(-200%);
 }
 
 #yesImage.slide-in-out {
     animation: slideInLeft 4s ease-out forwards;
+}
+
+#noImage {
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%) translateX(200%);
 }
 
 #noImage.slide-in-out {
@@ -115,15 +176,15 @@ body {
 }
 
 @keyframes slideInLeft {
-    0% { transform: translate(-50%, -250px); opacity: 1; }
-    25% { transform: translate(-50%, 0); opacity: 1; }
-    75% { transform: translate(-50%, 0); opacity: 1; }
-    100% { transform: translate(-50%, -250px); opacity: 0; }
+    0% { transform: translate(-50%, -50%) translateX(-200%); opacity: 1; }
+    25% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
+    75% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
+    100% { transform: translate(-50%, -50%) translateX(-200%); opacity: 0; }
 }
 
 @keyframes slideInRight {
-    0% { transform: translate(50%, 250px); opacity: 1; }
-    25% { transform: translate(50%, 0); opacity: 1; }
-    75% { transform: translate(50%, 0); opacity: 1; }
-    100% { transform: translate(50%, 250px); opacity: 0; }
+    0% { transform: translate(50%, -50%) translateX(200%); opacity: 1; }
+    25% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
+    75% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
+    100% { transform: translate(50%, -50%) translateX(200%); opacity: 0; }
 }
