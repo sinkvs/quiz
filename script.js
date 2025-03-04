@@ -48,14 +48,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     yesImage.classList.remove('slide-in-out');
                     currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
                     loadQuestion();
-                }, 2000);
+                }, 4000);
             } else {
                 errorAudio.play();
                 this.classList.add('wrong');
                 noImage.classList.add('slide-in-out');
                 setTimeout(() => {
                     noImage.classList.remove('slide-in-out');
-                }, 2000);
+                }, 4000);
             }
         });
     });
