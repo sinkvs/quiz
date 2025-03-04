@@ -1,6 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const startButton = document.getElementById('startButton');
+    const startScreen = document.getElementById('startScreen');
+    const quizContent = document.getElementById('quizContent');
     const backgroundAudio = document.getElementById('backgroundAudio');
-    backgroundAudio.play(); // Запускаем фоновую музыку при загрузке страницы
+
+    startButton.addEventListener('click', function() {
+        startScreen.style.display = 'none';
+        quizContent.style.display = 'flex';
+        backgroundAudio.play().catch(error => {
+            console.error('Ошибка воспроизведения аудио:', error);
+        });
+        loadQuestion();
+    });
 
     const questions = [
         {
@@ -62,6 +73,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    loadQuestion();
 });
