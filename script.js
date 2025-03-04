@@ -22,7 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const options = document.querySelectorAll('.option');
     const errorAudio = document.getElementById('errorAudio');
     const goodAudio = document.getElementById('goodAudio');
-    const slideImage = document.getElementById('slideImage');
+    const yesImage = document.getElementById('yesImage');
+    const noImage = document.getElementById('noImage');
 
     function loadQuestion() {
         const currentQuestion = questions[currentQuestionIndex];
@@ -42,16 +43,18 @@ document.addEventListener('DOMContentLoaded', function() {
             if (selectedAnswer === correctAnswer) {
                 goodAudio.play();
                 this.classList.add('correct');
+                yesImage.classList.add('slide-in-out');
                 setTimeout(() => {
+                    yesImage.classList.remove('slide-in-out');
                     currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
                     loadQuestion();
-                }, 1000);
+                }, 2000);
             } else {
                 errorAudio.play();
                 this.classList.add('wrong');
-                slideImage.classList.add('slide-in-out');
+                noImage.classList.add('slide-in-out');
                 setTimeout(() => {
-                    slideImage.classList.remove('slide-in-out');
+                    noImage.classList.remove('slide-in-out');
                 }, 2000);
             }
         });
