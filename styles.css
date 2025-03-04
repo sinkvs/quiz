@@ -32,6 +32,9 @@ body {
 }
 
 #startButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     background-color: transparent;
     border: 2px solid #FFC0CB;
     color: #FFC0CB;
@@ -46,6 +49,14 @@ body {
 #startButton:hover {
     background-color: #FFC0CB;
     color: white;
+}
+
+#greetingText {
+    position: absolute;
+    bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    font-style: italic;
 }
 
 @keyframes shimmer {
