@@ -84,4 +84,46 @@ body {
     padding: 20px;
     box-sizing: border-box;
     margin-top: 40px;
+    position: relative;
+}
+
+#yesImage, #noImage {
+    position: absolute;
+    height: 200px;
+    width: auto;
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#yesImage {
+    left: -250px;
+}
+
+#noImage {
+    right: -250px;
+}
+
+#yesImage.slide-in-out {
+    animation: slideInLeft 4s ease-out forwards;
+}
+
+#noImage.slide-in-out {
+    animation: slideInRight 4s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+    0% { transform: translateY(-50%) translateX(-250px); opacity: 1; }
+    25% { transform: translateY(-50%) translateX(0); opacity: 1; }
+    75% { transform: translateY(-50%) translateX(0); opacity: 1; }
+    100% { transform: translateY(-50%) translateX(-250px); opacity: 0; }
+}
+
+@keyframes slideInRight {
+    0% { transform: translateY(-50%) translateX(250px); opacity: 1; }
+    25% { transform: translateY(-50%) translateX(0); opacity: 1; }
+    75% { transform: translateY(-50%) translateX(0); opacity: 1; }
+    100% { transform: translateY(-50%) translateX(250px); opacity: 0; }
 }
