@@ -11,26 +11,33 @@ body {
 }
 
 .container {
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный фон */
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question-container {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
     align-items: center;
-    z-index: 1;
+    justify-content: center;
 }
 
 h2 {
     color: #333;
     font-style: italic;
-    margin-bottom: 20px;
-}
-
-.options {
-    display: flex;
-    flex-direction: column;
+    margin: 20px 0;
 }
 
 button.option {
@@ -42,7 +49,8 @@ button.option {
     border-radius: 25px;
     transition: background-color 0.3s, transform 0.3s;
     font-style: italic;
-    margin: 5px 0;
+    flex: 1;
+    margin: 5px;
 }
 
 button.option:hover {
