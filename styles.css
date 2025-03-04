@@ -8,6 +8,8 @@ body {
     font-family: 'Helvetica Neue', sans-serif;
     overflow: hidden;
     position: relative;
+    padding-bottom: 20px; /* Добавляем отступ снизу */
+    box-sizing: border-box;
 }
 
 .container {
@@ -27,6 +29,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px; /* Добавляем отступ снизу */
 }
 
 h2 {
@@ -38,7 +41,7 @@ h2 {
 .button-row {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 button.option {
