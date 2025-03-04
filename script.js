@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const backgroundAudio = document.getElementById('backgroundAudio');
+    backgroundAudio.play(); // Запускаем фоновую музыку при загрузке страницы
+
     const questions = [
         {
             question: "Какой инструмент используется для создания объема у корней волос?",
