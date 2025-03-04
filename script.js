@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         options.forEach((option, index) => {
             option.textContent = currentQuestion.options[index];
             option.dataset.answer = currentQuestion.options[index].charAt(0);
+            option.classList.remove('wrong', 'correct');
         });
     }
 
@@ -40,18 +41,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (selectedAnswer === correctAnswer) {
                 goodAudio.play();
-                backgroundImage.classList.add('slide-in');
+                this.classList.add('correct');
                 setTimeout(() => {
-                    backgroundImage.classList.remove('slide-in');
                     currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
                     loadQuestion();
-                }, 3000);
+                }, 1000);
             } else {
                 errorAudio.play();
-                backgroundImage.classList.add('slide-in');
+                this.classList.add('wrong');
+                backgroundImage.classList.add('slide-in-out');
                 setTimeout(() => {
-                    backgroundImage.classList.remove('slide-in');
-                }, 3000);
+                    backgroundImage.classList.remove('slide-in-out');
+                }, 2000);
             }
         });
     });
