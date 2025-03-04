@@ -2,13 +2,14 @@ body {
     background-image: url('buke.png'); /* Устанавливаем фоновое изображение */
     background-size: cover; /* Покрываем всю область */
     background-position: center; /* Центрируем изображение */
+    background-attachment: fixed; /* Фиксируем фон */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     font-family: 'Helvetica Neue', sans-serif;
-    overflow: hidden;
+    overflow: hidden; /* Предотвращаем прокрутку */
     position: relative;
 }
 
