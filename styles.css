@@ -79,13 +79,14 @@ button.option.correct {
     height: 200px; /* Уменьшенный размер */
     width: auto;
     z-index: 2;
-    opacity: 1;
+    opacity: 0;
     pointer-events: none;
 }
 
 #yesImage {
     left: -200px; /* Начальное положение слева от экрана */
-    transition: transform 2s ease-out;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #yesImage.slide-in-out {
@@ -94,7 +95,8 @@ button.option.correct {
 
 #noImage {
     right: -200px; /* Начальное положение справа от экрана */
-    transition: transform 2s ease-out;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #noImage.slide-in-out {
@@ -102,15 +104,15 @@ button.option.correct {
 }
 
 @keyframes slideInLeft {
-    0% { transform: translateX(-100%); }
-    50% { transform: translateX(0); }
-    75% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+    0% { transform: translate(-100%, -50%); opacity: 1; }
+    25% { transform: translate(0, -50%); opacity: 1; }
+    75% { transform: translate(0, -50%); opacity: 1; }
+    100% { transform: translate(-100%, -50%); opacity: 0; }
 }
 
 @keyframes slideInRight {
-    0% { transform: translateX(100%); }
-    50% { transform: translateX(0); }
-    75% { transform: translateX(0); }
-    100% { transform: translateX(100%); }
+    0% { transform: translate(100%, -50%); opacity: 1; }
+    25% { transform: translate(0, -50%); opacity: 1; }
+    75% { transform: translate(0, -50%); opacity: 1; }
+    100% { transform: translate(100%, -50%); opacity: 0; }
 }
