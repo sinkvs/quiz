@@ -23,7 +23,6 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .start-screen img {
@@ -32,10 +31,8 @@ body {
 }
 
 #startButton {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: transparent;
+    margin-top: 20px;
+    background-color: #FFC0CB;
     border: 2px solid #FFC0CB;
     color: #FFC0CB;
     font-size: 24px;
@@ -47,16 +44,8 @@ body {
 }
 
 #startButton:hover {
-    background-color: #FFC0CB;
+    background-color: #FF69B4;
     color: white;
-}
-
-#greetingText {
-    position: absolute;
-    bottom: 20px;
-    font-size: 24px;
-    color: #333;
-    font-style: italic;
 }
 
 @keyframes shimmer {
