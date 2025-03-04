@@ -19,6 +19,7 @@ body {
     max-width: 600px;
     padding: 20px;
     box-sizing: border-box;
+    margin-top: 40px; /* Сдвигаем контейнер ниже */
 }
 
 .question-container {
@@ -82,7 +83,7 @@ button.option.correct {
 
 #yesImage, #noImage {
     position: absolute;
-    height: 150px; /* Уменьшенный размер */
+    height: 200px; /* Увеличенный размер */
     width: auto;
     z-index: 2;
     opacity: 0;
