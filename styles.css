@@ -1,129 +1,64 @@
 body {
-    background-image: url('buke.png'); /* Устанавливаем фоновое изображение */
-    background-size: cover; /* Покрываем всю область */
-    background-position: center; /* Центрируем изображение */
-    background-attachment: fixed; /* Фиксируем фон */
+    background-image: url('buke.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     font-family: 'Helvetica Neue', sans-serif;
-    overflow: hidden; /* Предотвращаем прокрутку */
+    overflow: hidden;
     position: relative;
 }
 
-.container {
+.start-screen {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    box-sizing: border-box;
-    margin-top: 40px; /* Сдвигаем контейнер ниже */
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
-.question-container {
-    text-align: center;
-    margin-bottom: 20px; /* Уменьшаем отступ снизу */
+.start-screen img {
+    max-width: 100%;
+    height: auto;
 }
 
-h2 {
-    color: #333;
-    font-style: italic;
-    margin: 0;
-}
-
-.button-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-button.option {
-    background-color: #FFC0CB; /* Светло-розовый */
-    border: none;
-    padding: 15px;
-    font-size: 16px;
+#startButton {
+    background-color: transparent;
+    border: 2px solid #FFC0CB;
+    color: #FFC0CB;
+    font-size: 24px;
+    padding: 15px 30px;
     cursor: pointer;
     border-radius: 25px;
-    transition: background-color 0.3s, transform 0.3s;
-    font-style: italic;
-    flex: 1;
-    margin: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    animation: shimmer 2s infinite;
 }
 
-button.option:hover {
-    background-color: #FF69B4; /* Ярко-розовый при наведении */
-    transform: scale(1.05);
+#startButton:hover {
+    background-color: #FFC0CB;
+    color: white;
 }
 
-button.option:active {
-    transform: scale(0.95);
+@keyframes shimmer {
+    0% {
+        color: #FFC0CB;
+        border-color: #FFC0CB;
+    }
+    50% {
+        color: #FF69B4;
+        border-color: #FF69B4;
+    }
+    100% {
+        color: #FFC0CB;
+        border-color: #FFC0CB;
+    }
 }
-
-button.option.wrong {
-    animation: wrongBlink 0.5s 3;
-}
-
-button.option.correct {
-    animation: correctBlink 0.5s 3;
-}
-
-@keyframes wrongBlink {
-    0% { background-color: #FFC0CB; }
-    50% { background-color: #FF6347; } /* Красный */
-    100% { background-color: #FFC0CB; }
-}
-
-@keyframes correctBlink {
-    0% { background-color: #FFC0CB; }
-    50% { background-color: #32CD32; } /* Зеленый */
-    100% { background-color: #FFC0CB; }
-}
-
-#yesImage, #noImage {
-    position: absolute;
-    height: 200px; /* Увеличенный размер */
-    width: auto;
-    z-index: 2;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#yesImage {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) translateX(-200%);
-}
-
-#yesImage.slide-in-out {
-    animation: slideInLeft 4s ease-out forwards;
-}
-
-#noImage {
-    right: 50%;
-    top: 50%;
-    transform: translate(50%, -50%) translateX(200%);
-}
-
-#noImage.slide-in-out {
-    animation: slideInRight 4s ease-out forwards;
-}
-
-@keyframes slideInLeft {
-    0% { transform: translate(-50%, -50%) translateX(-200%); opacity: 1; }
-    25% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
-    75% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
-    100% { transform: translate(-50%, -50%) translateX(-200%); opacity: 0; }
-}
-
-@keyframes slideInRight {
-    0% { transform: translate(50%, -50%) translateX(200%); opacity: 1; }
-    25% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
-    75% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
-    100% { transform: translate(50%, -50%) translateX(200%); opacity: 0; }
-}
-
