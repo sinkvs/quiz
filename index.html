@@ -3,18 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Начало тестирования</title>
+    <title>Викторина</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container" id="initialContent">
-        <h1>Начало тестирования</h1>
-        <button id="continueButton">Продолжить</button>
+    <div class="container" id="quizContent">
+        <img src="leo.png" alt="Background" id="backgroundImage">
+        <div class="question-container">
+            <h2 id="questionText">Вопрос будет здесь</h2>
+            <div class="options">
+                <button class="option" data-answer="A">A) Вариант A</button>
+                <button class="option" data-answer="B">B) Вариант B</button>
+                <button class="option" data-answer="C">C) Вариант C</button>
+                <button class="option" data-answer="D">D) Вариант D</button>
+            </div>
+        </div>
     </div>
-    <div class="container hidden" id="welcomeContent">
-        <img src="leo-lider.jpg" alt="Leo Lider" id="leoImage">
-        <h2>Добро пожаловать</h2>
-    </div>
+    <audio id="errorAudio" src="error.mp3"></audio>
+    <audio id="goodAudio" src="good.mp3"></audio>
     <script src="script.js"></script>
 </body>
 </html>
