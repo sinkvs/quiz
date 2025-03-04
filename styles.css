@@ -31,7 +31,7 @@ body {
 }
 
 #startButton {
-    margin-top: 20px;
+    margin-top: -20px; /* Уменьшаем отступ сверху */
     background-color: #FFC0CB;
     border: 2px solid #FFC0CB;
     color: #FFC0CB;
