@@ -15,7 +15,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный фон */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,7 +28,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.2;
+    opacity: 0.3;
     z-index: -1;
 }
 
@@ -68,15 +68,38 @@ button.option:active {
     transform: scale(0.95);
 }
 
-.slide-in {
-    animation: slideIn 3s ease-out;
+button.option.wrong {
+    animation: wrongBlink 0.5s 3;
 }
 
-@keyframes slideIn {
-    from {
+button.option.correct {
+    animation: correctBlink 0.5s 3;
+}
+
+@keyframes wrongBlink {
+    0% { background-color: #FFC0CB; }
+    50% { background-color: #FF6347; } /* Красный */
+    100% { background-color: #FFC0CB; }
+}
+
+@keyframes correctBlink {
+    0% { background-color: #FFC0CB; }
+    50% { background-color: #32CD32; } /* Зеленый */
+    100% { background-color: #FFC0CB; }
+}
+
+.slide-in-out {
+    animation: slideInOut 2s ease-out;
+}
+
+@keyframes slideInOut {
+    0% {
         transform: translateX(100%);
     }
-    to {
+    50% {
         transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
     }
 }
