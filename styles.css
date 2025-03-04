@@ -79,26 +79,38 @@ button.option.correct {
     height: 200px; /* Уменьшенный размер */
     width: auto;
     z-index: 2;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
 }
 
 #yesImage {
     left: -200px; /* Начальное положение слева от экрана */
-    transition: transform 2s ease-out, opacity 2s ease-out;
+    transition: transform 2s ease-out;
 }
 
 #yesImage.slide-in-out {
-    transform: translateX(calc(100% + 200px));
-    opacity: 1;
+    animation: slideInLeft 4s ease-out forwards;
 }
 
 #noImage {
     right: -200px; /* Начальное положение справа от экрана */
-    transition: transform 2s ease-out, opacity 2s ease-out;
+    transition: transform 2s ease-out;
 }
 
 #noImage.slide-in-out {
-    transform: translateX(calc(-100% - 200px));
-    opacity: 1;
+    animation: slideInRight 4s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(0); }
+    75% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+@keyframes slideInRight {
+    0% { transform: translateX(100%); }
+    50% { transform: translateX(0); }
+    75% { transform: translateX(0); }
+    100% { transform: translateX(100%); }
 }
