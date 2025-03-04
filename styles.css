@@ -1,5 +1,7 @@
 body {
-    background-color: #E0D6EB; /* Фиолетовый фон */
+    background-image: url('buke.png'); /* Устанавливаем фоновое изображение */
+    background-size: cover; /* Покрываем всю область */
+    background-position: center; /* Центрируем изображение */
     display: flex;
     justify-content: center;
     align-items: center;
