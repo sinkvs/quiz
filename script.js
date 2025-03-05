@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizContainer = document.getElementById('quiz-container');
     const questionElement = document.getElementById('question');
     const answersElement = document.getElementById('answers');
+    const errorAudio = document.getElementById('errorAudio');
+    const goodAudio = document.getElementById('goodAudio');
+    const yesImage = document.getElementById('yesImage');
+    const noImage = document.getElementById('noImage');
 
     const questions = [
         {
@@ -139,9 +143,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkAnswer(selected) {
+        const answerElements = document.querySelectorAll('.answer');
         if (selected === questions[currentQuestion].correct) {
-            currentQuestion++;
-            showQuestion(currentQuestion);
+            goodAudio.play();
+            answerElements[selected].classList.add('correct');
+            yesImage.classList.add('slide-in-out');
+            setTimeout(() => {
+                yesImage.classList.remove('slide-in-out');
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            }, 4000);
+        } else {
+            errorAudio.play();
+            answerElements[selected].classList.add('wrong');
+            noImage.classList.add('slide-in-out');
+            setTimeout(() => {
+                noImage.classList.remove('slide-in-out');
+            }, 4000);
         }
     }
 });
