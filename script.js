@@ -156,14 +156,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 yesImage.classList.remove('slide-in-out');
                 currentQuestion++;
                 showQuestion(currentQuestion);
-            }, 4000);
+            }, 2000);
         } else {
             errorAudio.play();
             answerElements[selected].classList.add('wrong');
             noImage.classList.add('slide-in-out');
             setTimeout(() => {
                 noImage.classList.remove('slide-in-out');
-            }, 4000);
+            }, 2000);
         }
     }
 });
