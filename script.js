@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const startScreen = document.getElementById('startScreen');
     const quizContent = document.getElementById('quizContent');
     const backgroundAudio = document.getElementById('backgroundAudio');
+    const finalButton = document.createElement('button');
+    finalButton.id = 'finalButton';
+    finalButton.textContent = 'И в завершение';
+    document.body.appendChild(finalButton);
 
     startButton.addEventListener('click', function() {
         startScreen.style.display = 'none';
@@ -40,6 +44,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const noImage = document.getElementById('noImage');
 
     function loadQuestion() {
+        if (currentQuestionIndex >= questions.length) {
+            quizContent.style.display = 'none';
+            finalButton.style.display = 'block';
+            setTimeout(() => {
+                finalButton.style.opacity = '1';
+            }, 1500);
+            return;
+        }
         const currentQuestion = questions[currentQuestionIndex];
         questionText.textContent = currentQuestion.question;
         options.forEach((option, index) => {
@@ -60,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 yesImage.classList.add('slide-in-out');
                 setTimeout(() => {
                     yesImage.classList.remove('slide-in-out');
-                    currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+                    currentQuestionIndex++;
                     loadQuestion();
                 }, 4000);
             } else {
