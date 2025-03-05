@@ -9,11 +9,9 @@
 <body>
     <div class="start-screen" id="startScreen">
         <img src="start_leo.png" alt="Start Image">
-        <div class="button-container">
-            <button id="startButton">Перейти к вопросам</button>
-            <button id="finalButton" style="display: none;">И в завершение</button>
-        </div>
+        <button id="startButton">Перейти к вопросам</button>
     </div>
+
     <div class="container" id="quizContent">
         <div class="question-container">
             <h2 id="questionText">Вопрос будет здесь</h2>
@@ -26,7 +24,9 @@
             <button class="option" data-answer="C">C) Вариант C</button>
             <button class="option" data-answer="D">D) Вариант D</button>
         </div>
+        <button id="finalButton" style="display: none;">И в завершение</button>
     </div>
+
     <img src="yes.jpg" alt="Yes Image" id="yesImage">
     <img src="no.jpg" alt="No Image" id="noImage">
     <audio id="backgroundAudio" src="background.mp3" loop></audio>
