@@ -1,6 +1,6 @@
 // script.js
 document.addEventListener('DOMContentLoaded', () => {
-    const leoLider = document.getElementById('leo-lider');
+    const startLeo = document.getElementById('start-leo');
     const buke = document.getElementById('buke');
     const code = document.getElementById('code');
     const quizContainer = document.getElementById('quiz-container');
@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentQuestion = 0;
 
-    leoLider.addEventListener('dblclick', () => {
-        leoLider.style.display = 'none';
+    startLeo.addEventListener('dblclick', () => {
+        startLeo.style.display = 'none';
         buke.style.display = 'block';
         quizContainer.style.display = 'block';
         showQuestion(currentQuestion);
