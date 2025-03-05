@@ -1,16 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const startButton = document.getElementById('startButton');
     const startScreen = document.getElementById('startScreen');
     const quizContent = document.getElementById('quizContent');
     const backgroundAudio = document.getElementById('backgroundAudio');
-    const finalButton = document.getElementById('finalButton');
+    const finalButton = document.createElement('button');
+    finalButton.id = 'finalButton';
+    finalButton.textContent = 'И в завершение';
+    document.body.appendChild(finalButton);
 
-    // Удаляем кнопку "Перейти к вопросам" и автоматически запускаем викторину
-    startScreen.style.display = 'none';
-    quizContent.style.display = 'flex';
-    backgroundAudio.play().catch(error => {
-        console.error('Ошибка воспроизведения аудио:', error);
+    startButton.addEventListener('click', function() {
+        startScreen.style.display = 'none';
+        quizContent.style.display = 'flex';
+        backgroundAudio.play().catch(error => {
+            console.error('Ошибка воспроизведения аудио:', error);
+        });
+        loadQuestion();
     });
-    loadQuestion();
 
     const questions = [
         {
@@ -40,7 +45,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function loadQuestion() {
         if (currentQuestionIndex >= questions.length) {
-            finalButton.style.display = 'block';
+            quizContent.style.display = 'none';
+            finalButton.style.display = 'flex';
             return;
         }
         const currentQuestion = questions[currentQuestionIndex];
