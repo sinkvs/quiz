@@ -28,7 +28,7 @@ body, html {
 
 #quiz-container {
     position: absolute;
-    top: 0%; /* здесь положение вверх вниз меняется */
+    top: 60%; /* здесь положение вверх вниз меняется */
     left: 50%; /* здесь влево вправо */
     transform: translate(-50%, 0);
     text-align: center;
