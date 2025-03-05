@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function loadQuestion() {
         if (currentQuestionIndex >= questions.length) {
             quizContent.style.display = 'none';
-            finalButton.style.display = 'flex';
+            finalButton.style.display = 'block';
             return;
         }
         const currentQuestion = questions[currentQuestionIndex];
