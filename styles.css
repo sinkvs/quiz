@@ -100,9 +100,9 @@ body, html {
 }
 
 #yesImage {
-    left: 0;
+    left: -200px; /* Начальная позиция за пределами экрана */
     top: 50%;
-    transform: translateY(-50%) translateX(-100%);
+    transform: translateY(-50%);
 }
 
 #yesImage.slide-in-out {
@@ -110,9 +110,9 @@ body, html {
 }
 
 #noImage {
-    right: 0;
+    right: -200px; /* Начальная позиция за пределами экрана */
     top: 50%;
-    transform: translateY(-50%) translateX(100%);
+    transform: translateY(-50%);
 }
 
 #noImage.slide-in-out {
@@ -120,13 +120,13 @@ body, html {
 }
 
 @keyframes slideInLeft {
-    0% { transform: translateY(-50%) translateX(-100%); opacity: 1; }
-    50% { transform: translateY(-50%) translateX(0); opacity: 1; }
-    100% { transform: translateY(-50%) translateX(-100%); opacity: 0; }
+    0% { left: -200px; opacity: 1; }
+    50% { left: 50%; opacity: 1; }
+    100% { left: -200px; opacity: 0; }
 }
 
 @keyframes slideInRight {
-    0% { transform: translateY(-50%) translateX(100%); opacity: 1; }
-    50% { transform: translateY(-50%) translateX(0); opacity: 1; }
-    100% { transform: translateY(-50%) translateX(100%); opacity: 0; }
+    0% { right: -200px; opacity: 1; }
+    50% { right: 50%; opacity: 1; }
+    100% { right: -200px; opacity: 0; }
 }
