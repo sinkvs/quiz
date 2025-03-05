@@ -39,12 +39,13 @@ body, html {
 }
 
 #question-box {
-    background-color: white;
+    background-color: #C71585; /* Розовато-фиолетовый цвет для вопросов */
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px; /* Добавляем отступ снизу */
     height: 20%; /* фиксированная высота для вопроса */
+    color: white; /* Цвет текста для вопросов */
 }
 
 #answers {
@@ -56,14 +57,16 @@ body, html {
     margin: 10px 0;
     cursor: pointer;
     padding: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #DB7093; /* Светло-розовато-фиолетовый цвет для ответов */
     border-radius: 10px;
     transition: transform 0.3s, background-color 0.3s;
     text-align: left; /* Выравниваем текст по левому краю */
+    background-color: #FFC0CB; /* Светло-розовато-фиолетовый фон для ответов */
+    color: #8B008B; /* Цвет текста для ответов */
 }
 
 .answer:hover {
-    background-color: #f0f0f0;
+    background-color: #FFB6C1; /* Светло-розовато-фиолетовый цвет при наведении */
     transform: scale(1.05);
 }
 
