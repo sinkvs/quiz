@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const goodAudio = document.getElementById('goodAudio');
     const yesImage = document.getElementById('yesImage');
     const noImage = document.getElementById('noImage');
+    const backgroundAudio = document.getElementById('backgroundAudio');
 
     const questions = [
         {
@@ -120,6 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
         startLeo.style.display = 'none';
         buke.style.display = 'block';
         quizContainer.style.display = 'block';
+        backgroundAudio.play().catch(error => {
+            console.error('Ошибка воспроизведения аудио:', error);
+        });
         showQuestion(currentQuestion);
     });
 
