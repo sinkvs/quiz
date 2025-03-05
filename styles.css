@@ -30,8 +30,8 @@ body {
     height: auto;
 }
 
-#startButton {
-    margin-top: 20px; /* Увеличиваем отступ сверху */
+#startButton, #finalButton {
+    margin-top: 20px; /* Установим одинаковый отступ сверху */
     background-color: #FFC0CB;
     border: 2px solid #FFC0CB;
     color: #FFC0CB;
@@ -41,13 +41,13 @@ body {
     border-radius: 25px;
     transition: background-color 0.3s, color 0.3s;
     animation: shimmer 2s infinite;
-    height: 60px; /* Установим высоту кнопки */
+    height: 60px; /* Установим одинаковую высоту для кнопок */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#startButton:hover {
+#startButton:hover, #finalButton:hover {
     background-color: #FF69B4;
     color: white;
 }
@@ -180,46 +180,4 @@ button.option.correct {
     25% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
     75% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
     100% { transform: translate(50%, -50%) translateX(200%); opacity: 0; }
-}
-
-/* Обновленные стили для кнопки "и в завершение" */
-#finalButton {
-    display: none;
-    position: absolute;
-    bottom: 100px; /* Подняли кнопку выше */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #FFC0CB;
-    border: 2px solid #FFC0CB;
-    color: #FFC0CB;
-    font-size: 24px;
-    padding: 15px 30px;
-    cursor: pointer;
-    border-radius: 25px;
-    transition: background-color 0.3s, color 0.3s;
-    animation: shimmer 2s infinite;
-    height: 60px; /* Установим высоту кнопки */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#finalButton:hover {
-    background-color: #FF69B4;
-    color: white;
-}
-
-@keyframes shimmer {
-    0% {
-        color: #FFC0CB;
-        border-color: #FFC0CB;
-    }
-    50% {
-        color: #FF69B4;
-        border-color: #FF69B4;
-    }
-    100% {
-        color: #FFC0CB;
-        border-color: #FFC0CB;
-    }
 }
