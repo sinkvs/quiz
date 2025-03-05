@@ -31,7 +31,7 @@ body {
 }
 
 #startButton {
-    margin-top: -20px; /* Уменьшаем отступ сверху */
+    margin-top: 20px; /* Увеличиваем отступ сверху */
     background-color: #FFC0CB;
     border: 2px solid #FFC0CB;
     color: #FFC0CB;
@@ -120,7 +120,7 @@ button.option.wrong {
 }
 
 button.option.correct {
-    animation: correctBlink 0.5s 3;
+    animation: correctBlick 0.5s 3;
 }
 
 @keyframes wrongBlink {
@@ -129,7 +129,7 @@ button.option.correct {
     100% { background-color: #FFC0CB; }
 }
 
-@keyframes correctBlink {
+@keyframes correctBlick {
     0% { background-color: #FFC0CB; }
     50% { background-color: #32CD32; }
     100% { background-color: #FFC0CB; }
@@ -178,11 +178,11 @@ button.option.correct {
     100% { transform: translate(50%, -50%) translateX(200%); opacity: 0; }
 }
 
-/* Новые стили для кнопки "и в завершение" */
+/* Обновленные стили для кнопки "и в завершение" */
 #finalButton {
     display: none;
     position: absolute;
-    bottom: 20px;
+    bottom: 100px; /* Подняли кнопку выше */
     left: 50%;
     transform: translateX(-50%);
     background-color: #FFC0CB;
