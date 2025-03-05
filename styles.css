@@ -30,8 +30,8 @@ body {
     height: auto;
 }
 
-#finalButton {
-    margin: 20px auto; /* Центрируем кнопку по горизонтали */
+#startButton, #finalButton {
+    margin-top: 20px; /* Установим одинаковый отступ сверху */
     background-color: #FFC0CB;
     border: 2px solid #FFC0CB;
     color: #FFC0CB;
@@ -47,7 +47,7 @@ body {
     justify-content: center;
 }
 
-#finalButton:hover {
+#startButton:hover, #finalButton:hover {
     background-color: #FF69B4;
     color: white;
 }
