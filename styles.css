@@ -31,23 +31,6 @@ body {
     margin-bottom: 20px; /* Добавим отступ снизу для изображения */
 }
 
-#startButton {
-    margin-top: 20px; /* Установим отступ сверху */
-    background-color: #FFC0CB;
-    border: 2px solid #FFC0CB;
-    color: #FFC0CB;
-    font-size: 24px;
-    padding: 15px 30px;
-    cursor: pointer;
-    border-radius: 25px;
-    transition: background-color 0.3s, color 0.3s;
-    animation: shimmer 2s infinite;
-    height: 60px; /* Установим одинаковую высоту для кнопок */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 #finalButton {
     margin: 20px auto; /* Центрируем кнопку по горизонтали */
     background-color: #FFC0CB;
@@ -65,7 +48,7 @@ body {
     justify-content: center;
 }
 
-#startButton:hover, #finalButton:hover {
+#finalButton:hover {
     background-color: #FF69B4;
     color: white;
 }
