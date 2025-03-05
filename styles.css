@@ -35,7 +35,7 @@ body, html {
     z-index: 10; /* Убедимся, что контейнер с вопросами отображается поверх изображения */
     width: 80%; /* здесь ширина контейнера с вопросами и ответами */
     max-width: 600px; /* здесь максимальная ширина контейнера */
-    height: 45%; /* фиксированная высота контейнера */ /*60*/
+    height: 45%; /* фиксированная высота контейнера */
 }
 
 #question-box {
@@ -45,12 +45,10 @@ body, html {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px; /* Добавляем отступ снизу */
     height: 20%; /* фиксированная высота для вопроса */
-    overflow-y: auto; /* добавляем вертикальную прокрутку */
 }
 
 #answers {
     height: 70%; /* фиксированная высота для ответов */
-    overflow-y: auto; /* добавляем вертикальную прокрутку */
     margin-top: 20px;
 }
 
@@ -67,4 +65,67 @@ body, html {
 .answer:hover {
     background-color: #f0f0f0;
     transform: scale(1.05);
+}
+
+.answer.wrong {
+    animation: wrongBlink 0.5s 3;
+}
+
+.answer.correct {
+    animation: correctBlick 0.5s 3;
+}
+
+@keyframes wrongBlink {
+    0% { background-color: #FFC0CB; }
+    50% { background-color: #FF6347; }
+    100% { background-color: #FFC0CB; }
+}
+
+@keyframes correctBlick {
+    0% { background-color: #FFC0CB; }
+    50% { background-color: #32CD32; }
+    100% { background-color: #FFC0CB; }
+}
+
+#yesImage, #noImage {
+    position: absolute;
+    height: 200px;
+    width: auto;
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#yesImage {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translateX(-200%);
+}
+
+#yesImage.slide-in-out {
+    animation: slideInLeft 4s ease-out forwards;
+}
+
+#noImage {
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%) translateX(200%);
+}
+
+#noImage.slide-in-out {
+    animation: slideInRight 4s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+    0% { transform: translate(-50%, -50%) translateX(-200%); opacity: 1; }
+    25% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
+    75% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
+    100% { transform: translate(-50%, -50%) translateX(-200%); opacity: 0; }
+}
+
+@keyframes slideInRight {
+    0% { transform: translate(50%, -50%) translateX(200%); opacity: 1; }
+    25% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
+    75% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
+    100% { transform: translate(50%, -50%) translateX(200%); opacity: 0; }
 }
