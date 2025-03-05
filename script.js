@@ -3,10 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const startScreen = document.getElementById('startScreen');
     const quizContent = document.getElementById('quizContent');
     const backgroundAudio = document.getElementById('backgroundAudio');
-    const finalButton = document.createElement('button');
-    finalButton.id = 'finalButton';
-    finalButton.textContent = 'И в завершение';
-    document.body.appendChild(finalButton);
+    const finalButton = document.getElementById('finalButton');
 
     startButton.addEventListener('click', function() {
         startScreen.style.display = 'none';
