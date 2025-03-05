@@ -42,6 +42,9 @@ body {
     transition: background-color 0.3s, color 0.3s;
     animation: shimmer 2s infinite;
     height: 60px; /* Установим высоту кнопки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #startButton:hover {
@@ -196,6 +199,9 @@ button.option.correct {
     transition: background-color 0.3s, color 0.3s;
     animation: shimmer 2s infinite;
     height: 60px; /* Установим высоту кнопки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #finalButton:hover {
