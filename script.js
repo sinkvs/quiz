@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const startButton = document.getElementById('startButton');
+    const startImage = document.querySelector('.start-screen img');
     const startScreen = document.getElementById('startScreen');
     const quizContent = document.getElementById('quizContent');
     const backgroundAudio = document.getElementById('backgroundAudio');
@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     finalButton.textContent = 'И в завершение';
     document.body.appendChild(finalButton);
 
-    startButton.addEventListener('click', function() {
+    startImage.addEventListener('dblclick', function() {
         startScreen.style.display = 'none';
         quizContent.style.display = 'flex';
         backgroundAudio.play().catch(error => {
