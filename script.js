@@ -1,18 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const startButton = document.getElementById('startButton');
     const startScreen = document.getElementById('startScreen');
     const quizContent = document.getElementById('quizContent');
     const backgroundAudio = document.getElementById('backgroundAudio');
     const finalButton = document.getElementById('finalButton');
 
-    startButton.addEventListener('click', function() {
-        startScreen.style.display = 'none';
-        quizContent.style.display = 'flex';
-        backgroundAudio.play().catch(error => {
-            console.error('Ошибка воспроизведения аудио:', error);
-        });
-        loadQuestion();
+    // Удаляем кнопку "Перейти к вопросам" и автоматически запускаем викторину
+    startScreen.style.display = 'none';
+    quizContent.style.display = 'flex';
+    backgroundAudio.play().catch(error => {
+        console.error('Ошибка воспроизведения аудио:', error);
     });
+    loadQuestion();
 
     const questions = [
         {
