@@ -30,17 +30,8 @@ body {
     height: auto;
 }
 
-.button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 20px; /* Установите отступ снизу, если нужно */
-    width: 100%;
-}
-
 #startButton, #finalButton {
-    margin: 0 10px; /* Установите отступы между кнопками */
+    margin-top: 20px; /* Установим одинаковый отступ сверху */
     background-color: #FFC0CB;
     border: 2px solid #FFC0CB;
     color: #FFC0CB;
@@ -50,10 +41,14 @@ body {
     border-radius: 25px;
     transition: background-color 0.3s, color 0.3s;
     animation: shimmer 2s infinite;
-    height: 60px; /* Установите одинаковую высоту для кнопок */
+    height: 60px; /* Установим одинаковую высоту для кнопок */
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#finalButton {
+    margin: 20px auto; /* Центрируем кнопку по горизонтали */
 }
 
 #startButton:hover, #finalButton:hover {
