@@ -28,11 +28,18 @@ body, html {
 
 #quiz-container {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 50%; /* здесь положение вверх вниз меняется */
+    left: 50%; /* здесь влево вправо */
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 10; /* Убедимся, что контейнер с вопросами отображается поверх изображения */
+}
+
+#question-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #answers {
@@ -40,13 +47,15 @@ body, html {
 }
 
 .answer {
-    margin: 5px 0;
+    margin: 10px 0;
     cursor: pointer;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
 .answer:hover {
     background-color: #f0f0f0;
+    transform: scale(1.05);
 }
