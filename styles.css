@@ -33,6 +33,8 @@ body, html {
     transform: translate(-50%, -50%);
     text-align: center;
     z-index: 10; /* Убедимся, что контейнер с вопросами отображается поверх изображения */
+    width: 80%; /* здесь ширина контейнера с вопросами и ответами */
+    max-width: 600px; /* здесь максимальная ширина контейнера */
 }
 
 #question-box {
@@ -40,6 +42,7 @@ body, html {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Добавляем отступ снизу */
 }
 
 #answers {
@@ -53,6 +56,7 @@ body, html {
     border: 1px solid #ccc;
     border-radius: 10px;
     transition: transform 0.3s, background-color 0.3s;
+    text-align: left; /* Выравниваем текст по левому краю */
 }
 
 .answer:hover {
