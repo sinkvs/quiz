@@ -41,6 +41,7 @@ body {
     border-radius: 25px;
     transition: background-color 0.3s, color 0.3s;
     animation: shimmer 2s infinite;
+    height: 60px; /* Установим высоту кнопки */
 }
 
 #startButton:hover {
@@ -194,6 +195,7 @@ button.option.correct {
     border-radius: 25px;
     transition: background-color 0.3s, color 0.3s;
     animation: shimmer 2s infinite;
+    height: 60px; /* Установим высоту кнопки */
 }
 
 #finalButton:hover {
