@@ -70,7 +70,9 @@ function checkAnswer(selectedAnswer) {
         feedbackImage.style.animation = 'slide-from-right 1s forwards';
 
         // Добавляем класс для мигания зеленым
-        document.querySelectorAll('.answer-btn')[selectedAnswer].classList.add('blink-green');
+        const selectedButton = document.querySelectorAll('.answer-btn')[selectedAnswer];
+        selectedButton.classList.add('blink-green');
+        console.log('Added blink-green to:', selectedButton);
 
         // Проигрываем звук правильного ответа
         const goodAudio = document.getElementById('good-audio');
@@ -95,7 +97,9 @@ function checkAnswer(selectedAnswer) {
         feedbackImage.style.animation = 'slide-from-left 1s forwards';
 
         // Добавляем класс для мигания красным
-        document.querySelectorAll('.answer-btn')[selectedAnswer].classList.add('blink-red');
+        const selectedButton = document.querySelectorAll('.answer-btn')[selectedAnswer];
+        selectedButton.classList.add('blink-red');
+        console.log('Added blink-red to:', selectedButton);
 
         // Проигрываем звук неправильного ответа
         const errorAudio = document.getElementById('error-audio');
