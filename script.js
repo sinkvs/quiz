@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
     const startLeo = document.getElementById('start-leo');
     const buke = document.getElementById('buke');
@@ -151,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (selectedAnswer === correctAnswer) {
             goodAudio.play();
-            document.querySelector('.correct').classList.remove('correct');
+            document.querySelectorAll('.answer').forEach(el => el.classList.remove('correct', 'wrong'));
             yesImage.style.opacity = 1;
             yesImage.classList.add('slide-in-out');
             setTimeout(() => {
@@ -162,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 4000);
         } else {
             errorAudio.play();
-            document.querySelector('.wrong').classList.remove('wrong');
+            document.querySelectorAll('.answer').forEach(el => el.classList.remove('correct', 'wrong'));
             noImage.style.opacity = 1;
             noImage.classList.add('slide-in-out');
             setTimeout(() => {
