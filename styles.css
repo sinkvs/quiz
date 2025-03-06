@@ -53,12 +53,13 @@ body {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #007BFF;
+    background: linear-gradient(145deg, #8e2de2, #4a00e0);
     color: white;
+    transition: background 0.3s;
 }
 
 .answer-btn:hover {
-    background-color: #0056b3;
+    background: linear-gradient(145deg, #7b2cbc, #5a189a);
 }
 
 .blink-red {
