@@ -27,6 +27,14 @@ const questions = [
 function startQuiz() {
     document.getElementById('start-screen').classList.add('hidden');
     document.getElementById('quiz-screen').classList.remove('hidden');
+
+    // Предварительная загрузка изображений
+    const images = ['yes.jpg', 'no.jpg', 'finish_capture.png'];
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
     showQuestion();
 }
 
