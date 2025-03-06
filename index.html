@@ -1,34 +1,30 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Викторина</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="start-screen" id="startScreen">
-        <img src="start_leo.png" alt="Start Image">
+    <div id="start-screen">
+        <img id="start-image" src="start_leo.png" alt="Start Image">
     </div>
-    <div class="container" id="quizContent">
-        <div class="question-container">
-            <h2 id="questionText">Вопрос будет здесь</h2>
+    <div id="quiz-screen" class="hidden">
+        <div id="question-box" class="rounded-box">
+            <p id="question-text">Вопрос?</p>
         </div>
-        <div class="button-row">
-            <button class="option" data-answer="A">A) Вариант A</button>
-            <button class="option" data-answer="B">B) Вариант B</button>
+        <div id="answer-buttons">
+            <button class="answer-btn">Ответ 1</button>
+            <button class="answer-btn">Ответ 2</button>
+            <button class="answer-btn">Ответ 3</button>
+            <button class="answer-btn">Ответ 4</button>
         </div>
-        <div class="button-row">
-            <button class="option" data-answer="C">C) Вариант C</button>
-            <button class="option" data-answer="D">D) Вариант D</button>
-        </div>
+        <img id="feedback-image" src="" alt="Feedback Image" class="hidden">
     </div>
-    <img src="yes.jpg" alt="Yes Image" id="yesImage">
-    <img src="no.jpg" alt="No Image" id="noImage">
-    <img src="finish_capture.png" alt="Finish Image" id="finishImage">
-    <audio id="backgroundAudio" src="background.mp3" loop></audio>
-    <audio id="errorAudio" src="error.mp3"></audio>
-    <audio id="goodAudio" src="good.mp3"></audio>
+    <div id="finish-screen" class="hidden">
+        <img src="finish_capture.png" alt="Finish Image">
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
