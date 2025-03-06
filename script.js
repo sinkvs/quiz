@@ -68,16 +68,21 @@ function checkAnswer(selectedAnswer) {
     if (selectedAnswer === correctAnswer) {
         feedbackImage.src = 'yes.jpg';
         feedbackImage.style.animation = 'slide-from-right 1s forwards';
+
+        // Добавляем класс для мигания зеленым
         document.querySelectorAll('.answer-btn')[selectedAnswer].classList.add('blink-green');
 
-        // Play good audio
+        // Проигрываем звук правильного ответа
         const goodAudio = document.getElementById('good-audio');
         goodAudio.play();
 
         setTimeout(() => {
             feedbackImage.classList.add('hidden');
             feedbackImage.style.animation = '';
+
+            // Удаляем классы мигания
             document.querySelectorAll('.answer-btn').forEach(button => button.classList.remove('blink-red', 'blink-green'));
+
             currentQuestion++;
             if (currentQuestion >= questions.length) {
                 showFinishScreen();
@@ -88,16 +93,21 @@ function checkAnswer(selectedAnswer) {
     } else {
         feedbackImage.src = 'no.jpg';
         feedbackImage.style.animation = 'slide-from-left 1s forwards';
+
+        // Добавляем класс для мигания красным
         document.querySelectorAll('.answer-btn')[selectedAnswer].classList.add('blink-red');
 
-        // Play error audio
+        // Проигрываем звук неправильного ответа
         const errorAudio = document.getElementById('error-audio');
         errorAudio.play();
 
         setTimeout(() => {
             feedbackImage.classList.add('hidden');
             feedbackImage.style.animation = '';
+
+            // Удаляем классы мигания
             document.querySelectorAll('.answer-btn').forEach(button => button.classList.remove('blink-red'));
+
             buttonsDisabled = false;
         }, 3000);
     }
