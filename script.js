@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     let currentQuestionIndex = 0;
+    let isInteractionAllowed = true; // Флаг для защиты от быстрого нажатия
 
     startLeo.addEventListener('dblclick', () => {
         startLeo.style.display = 'none';
@@ -143,14 +144,20 @@ document.addEventListener('DOMContentLoaded', () => {
             answerElement.addEventListener('click', () => checkAnswer(answer[0]));
             answersElement.appendChild(answerElement);
         });
+        isInteractionAllowed = true; // Сбрасываем флаг при загрузке нового вопроса
     }
 
     function checkAnswer(selectedAnswer) {
+        if (!isInteractionAllowed) return; // Проверяем флаг
+
+        isInteractionAllowed = false; // Устанавливаем флаг, чтобы предотвратить быстрое нажатие
+
         const correctAnswer = questions[currentQuestionIndex].correctAnswer;
 
         if (selectedAnswer === correctAnswer) {
             goodAudio.play();
             document.querySelectorAll('.answer').forEach(el => el.classList.remove('correct', 'wrong'));
+            document.querySelector(`[data-answer="${selectedAnswer}"]`).classList.add('correct');
             yesImage.style.opacity = 1;
             yesImage.classList.add('slide-in-out');
             setTimeout(() => {
@@ -162,11 +169,13 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             errorAudio.play();
             document.querySelectorAll('.answer').forEach(el => el.classList.remove('correct', 'wrong'));
+            document.querySelector(`[data-answer="${selectedAnswer}"]`).classList.add('wrong');
             noImage.style.opacity = 1;
             noImage.classList.add('slide-in-out');
             setTimeout(() => {
                 noImage.style.opacity = 0;
                 noImage.classList.remove('slide-in-out');
+                isInteractionAllowed = true; // Разрешаем взаимодействие после завершения анимации
             }, 4000);
         }
     }
