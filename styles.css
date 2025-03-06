@@ -91,34 +91,33 @@ body, html {
 }
 
 /* Общие стили для изображений */
-#yesImage, #noImage {
+#alexYesImage, #vladYesImage, #kostyaYesImage, #vovaYesImage, #alexEndImage, #vovaEndImage {
     position: absolute;
-    height: 90px; /* Уменьшаем высоту изображений */
+    height: 150px; /* Уменьшаем высоту изображений */
     width: auto;
     z-index: 2;
     opacity: 0;
     pointer-events: none;
 }
 
-/* Стили и анимация для yes.jpg */
-#yesImage {
+/* Стили и анимация для изображений */
+#alexYesImage, #vladYesImage, #kostyaYesImage, #vovaYesImage {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) translateX(-200%);
 }
 
-#yesImage.slide-in-out {
+#alexYesImage.slide-in-out, #vladYesImage.slide-in-out, #kostyaYesImage.slide-in-out, #vovaYesImage.slide-in-out {
     animation: slideInLeft 4s ease-out forwards;
 }
 
-/* Стили и анимация для no.jpg */
-#noImage {
+#alexEndImage, #vovaEndImage {
     right: 50%;
     top: 50%;
     transform: translate(50%, -50%) translateX(200%);
 }
 
-#noImage.slide-in-out {
+#alexEndImage.slide-in-out, #vovaEndImage.slide-in-out {
     animation: slideInRight 4s ease-out forwards;
 }
 
