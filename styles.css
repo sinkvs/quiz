@@ -30,60 +30,26 @@ body {
     height: auto;
 }
 
-#startButton, #finalButton {
-    margin-top: 20px; /* Установим одинаковый отступ сверху */
-    background-color: #FFC0CB;
-    border: 2px solid #FFC0CB;
-    color: #FFC0CB;
-    font-size: 24px;
-    padding: 15px 30px;
-    cursor: pointer;
-    border-radius: 25px;
-    transition: background-color 0.3s, color 0.3s;
-    animation: shimmer 2s infinite;
-    height: 60px; /* Установим одинаковую высоту для кнопок */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#startButton:hover, #finalButton:hover {
-    background-color: #FF69B4;
-    color: white;
-}
-
-@keyframes shimmer {
-    0% {
-        color: #FFC0CB;
-        border-color: #FFC0CB;
-    }
-    50% {
-        color: #FF69B4;
-        border-color: #FF69B4;
-    }
-    100% {
-        color: #FFC0CB;
-        border-color: #FFC0CB;
-    }
-}
-
 .container {
-    display: none; /* Это свойство должно изменяться на 'flex' в JavaScript */
+    display: none;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* Центрирование содержимого по горизонтали */
+    align-items: center;
     height: 100%;
     width: 100%;
     max-width: 600px;
     padding: 20px;
     box-sizing: border-box;
-    margin: 40px auto 0 auto; /* Центрирование контейнера на странице */
+    margin: 40px auto 0 auto;
     position: relative;
 }
 
 .question-container {
     text-align: center;
     margin-bottom: 20px;
+    border-radius: 25px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 h2 {
@@ -125,7 +91,7 @@ button.option.wrong {
 }
 
 button.option.correct {
-    animation: correctBlick 0.5s 3;
+    animation: correctBlink 0.5s 3;
 }
 
 @keyframes wrongBlink {
@@ -134,7 +100,7 @@ button.option.correct {
     100% { background-color: #FFC0CB; }
 }
 
-@keyframes correctBlick {
+@keyframes correctBlink {
     0% { background-color: #FFC0CB; }
     50% { background-color: #32CD32; }
     100% { background-color: #FFC0CB; }
@@ -150,35 +116,51 @@ button.option.correct {
 }
 
 #yesImage {
-    left: 50%;
+    right: 0;
     top: 50%;
-    transform: translate(-50%, -50%) translateX(-200%);
+    transform: translateY(-50%) translateX(200%);
 }
 
 #yesImage.slide-in-out {
-    animation: slideInLeft 4s ease-out forwards;
-}
-
-#noImage {
-    right: 50%;
-    top: 50%;
-    transform: translate(50%, -50%) translateX(200%);
-}
-
-#noImage.slide-in-out {
     animation: slideInRight 4s ease-out forwards;
 }
 
-@keyframes slideInLeft {
-    0% { transform: translate(-50%, -50%) translateX(-200%); opacity: 1; }
-    25% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
-    75% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
-    100% { transform: translate(-50%, -50%) translateX(-200%); opacity: 0; }
+#noImage {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) translateX(-200%);
+}
+
+#noImage.slide-in-out {
+    animation: slideInLeft 4s ease-out forwards;
 }
 
 @keyframes slideInRight {
-    0% { transform: translate(50%, -50%) translateX(200%); opacity: 1; }
-    25% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
-    75% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
-    100% { transform: translate(50%, -50%) translateX(200%); opacity: 0; }
+    0% { transform: translateY(-50%) translateX(200%); opacity: 1; }
+    25% { transform: translateY(-50%) translateX(0); opacity: 1; }
+    75% { transform: translateY(-50%) translateX(0); opacity: 1; }
+    100% { transform: translateY(-50%) translateX(200%); opacity: 0; }
+}
+
+@keyframes slideInLeft {
+    0% { transform: translateY(-50%) translateX(-200%); opacity: 1; }
+    25% { transform: translateY(-50%) translateX(0); opacity: 1; }
+    75% { transform: translateY(-50%) translateX(0); opacity: 1; }
+    100% { transform: translateY(-50%) translateX(-200%); opacity: 0; }
+}
+
+#finishImage {
+    position: absolute;
+    height: 200px;
+    width: auto;
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#finishImage.show {
+    opacity: 1;
 }
