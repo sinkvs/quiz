@@ -37,6 +37,10 @@ function startQuiz() {
         img.src = src;
     });
 
+    // Start background music
+    const backgroundAudio = document.getElementById('background-audio');
+    backgroundAudio.play();
+
     showQuestion();
 }
 
@@ -66,6 +70,10 @@ function checkAnswer(selectedAnswer) {
         feedbackImage.style.animation = 'slide-from-right 1s forwards';
         document.querySelectorAll('.answer-btn')[selectedAnswer].classList.add('blink-green');
 
+        // Play good audio
+        const goodAudio = document.getElementById('good-audio');
+        goodAudio.play();
+
         setTimeout(() => {
             feedbackImage.classList.add('hidden');
             feedbackImage.style.animation = '';
@@ -81,6 +89,10 @@ function checkAnswer(selectedAnswer) {
         feedbackImage.src = 'no.jpg';
         feedbackImage.style.animation = 'slide-from-left 1s forwards';
         document.querySelectorAll('.answer-btn')[selectedAnswer].classList.add('blink-red');
+
+        // Play error audio
+        const errorAudio = document.getElementById('error-audio');
+        errorAudio.play();
 
         setTimeout(() => {
             feedbackImage.classList.add('hidden');
