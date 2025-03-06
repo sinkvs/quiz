@@ -22,21 +22,31 @@ body {
     object-fit: cover;
 }
 
-#question-box {
+/* Контейнер для вопросов и ответов */
+#quiz-container {
     position: absolute;
-    top: 10%;
+    top: 10%; /* Регулируйте это значение для вертикального положения */
     left: 50%;
     transform: translateX(-50%);
+    width: 80%; /* Регулируйте ширину контейнера */
+}
+
+#question-box {
     background-color: white;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
+    width: 100%; /* Регулируйте ширину вопроса */
+    height: auto; /* Регулируйте высоту вопроса */
+}
+
+#answer-buttons {
+    margin-top: 20px; /* Регулируйте отступ от вопроса */
 }
 
 .answer-btn {
     display: block;
-    width: 80%;
+    width: 100%; /* Регулируйте ширину кнопок */
     margin: 10px auto;
     padding: 10px;
     font-size: 16px;
