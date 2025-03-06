@@ -90,22 +90,13 @@ body, html {
     100% { background-color: #FFC0CB; }
 }
 
-#yesImage, #noImage, #oooImage {
+#yesImage, #noImage {
     position: absolute;
     height: 200px;
     width: auto;
-    z-index: 20; /* Убедимся, что изображения отображаются поверх всех элементов */
+    z-index: 2;
     opacity: 0;
-    visibility: hidden; /* Скрываем элемент, но он остается в потоке документа */
     pointer-events: none;
-    transition: opacity 0.5s ease-in-out; /* Плавный переход для opacity */
-}
-
-#yesImage.slide-in-out,
-#noImage.slide-in-out,
-#oooImage.slide-in-out {
-    opacity: 1;
-    visibility: visible; /* Делаем элемент видимым */
 }
 
 #yesImage {
@@ -114,16 +105,18 @@ body, html {
     transform: translateY(-50%);
 }
 
+#yesImage.slide-in-out {
+    animation: slideInLeft 4s ease-out forwards;
+}
+
 #noImage {
     right: -200px; /* Начальная позиция за пределами экрана */
     top: 50%;
     transform: translateY(-50%);
 }
 
-#oooImage {
-    right: -200px; /* Начальная позиция за пределами экрана */
-    top: 50%;
-    transform: translateY(-50%);
+#noImage.slide-in-out {
+    animation: slideInRight 4s ease-out forwards;
 }
 
 @keyframes slideInLeft {
