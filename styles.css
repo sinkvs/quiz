@@ -93,7 +93,7 @@ body, html {
 /* Общие стили для изображений */
 #yesImage, #noImage {
     position: absolute;
-    height: 150px; /* Уменьшаем высоту изображений */
+    height: 90px; /* Уменьшаем высоту изображений */
     width: auto;
     z-index: 2;
     opacity: 0;
