@@ -35,7 +35,7 @@ body {
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Регулируйте ширину блока с вопросом */
+    width: 900%; /* Регулируйте ширину блока с вопросом */
     height: auto; /* Регулируйте высоту блока с вопросом */
 }
 
@@ -46,7 +46,7 @@ body {
 
 .answer-btn {
     display: block;
-    width: 100%; /* Регулируйте ширину кнопок ответов */
+    width: 900%; /* Регулируйте ширину кнопок ответов */
     margin: 10px auto;
     padding: 10px;
     font-size: 16px;
