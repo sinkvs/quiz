@@ -90,43 +90,47 @@ body, html {
     100% { background-color: #FFC0CB; }
 }
 
+/* Общие стили для изображений */
 #yesImage, #noImage {
     position: absolute;
-    height: 200px;
+    height: 150px; /* Уменьшаем высоту изображений */
     width: auto;
     z-index: 2;
     opacity: 0;
     pointer-events: none;
 }
 
+/* Стили и анимация для yes.jpg */
 #yesImage {
-    left: -200px; /* Начальная позиция за пределами экрана */
+    left: 50%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%) translateX(-200%);
 }
 
 #yesImage.slide-in-out {
     animation: slideInLeft 4s ease-out forwards;
 }
 
+/* Стили и анимация для no.jpg */
 #noImage {
-    right: -200px; /* Начальная позиция за пределами экрана */
+    right: 50%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(50%, -50%) translateX(200%);
 }
 
 #noImage.slide-in-out {
     animation: slideInRight 4s ease-out forwards;
 }
 
+/* Определение анимаций */
 @keyframes slideInLeft {
-    0% { left: -200px; opacity: 1; }
-    50% { left: 50%; opacity: 1; }
-    100% { left: -200px; opacity: 0; }
+    0% { transform: translate(-50%, -50%) translateX(-200%); opacity: 1; }
+    50% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
+    100% { transform: translate(-50%, -50%) translateX(-200%); opacity: 0; }
 }
 
 @keyframes slideInRight {
-    0% { right: -200px; opacity: 1; }
-    50% { right: 50%; opacity: 1; }
-    100% { right: -200px; opacity: 0; }
+    0% { transform: translate(50%, -50%) translateX(200%); opacity: 1; }
+    50% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
+    100% { transform: translate(50%, -50%) translateX(200%); opacity: 0; }
 }
