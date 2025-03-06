@@ -1,80 +1,130 @@
-/* styles.css */
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* Убираем прокрутку, если она есть */
+body {
+    background-image: url('buke.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Helvetica Neue', sans-serif;
+    overflow: hidden;
+    position: relative;
 }
 
-#image-container {
+.start-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
 }
 
-#image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block; /* Убираем отступы под изображением */
+.start-screen img {
+    max-width: 100%;
+    height: auto;
 }
 
-#quiz-container {
-    position: absolute;
-    top: 40%; /* здесь положение вверх вниз меняется */
-    left: 50%; /* здесь влево вправо */
-    transform: translate(-50%, 0);
-    text-align: center;
-    z-index: 10; /* Убедимся, что контейнер с вопросами отображается поверх изображения */
-    width: 80%; /* здесь ширина контейнера с вопросами и ответами */
-    max-width: 600px; /* здесь максимальная ширина контейнера */
-    height: 45%; /* фиксированная высота контейнера */
-}
-
-#question-box {
-    background-color: #C71585; /* Розовато-фиолетовый цвет для вопросов */
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px; /* Добавляем отступ снизу */
-    height: 20%; /* фиксированная высота для вопроса */
-    color: white; /* Цвет текста для вопросов */
-}
-
-#answers {
-    height: 70%; /* фиксированная высота для ответов */
-    margin-top: 20px;
-}
-
-.answer {
-    margin: 10px 0;
+#startButton, #finalButton {
+    margin-top: 20px; /* Установим одинаковый отступ сверху */
+    background-color: #FFC0CB;
+    border: 2px solid #FFC0CB;
+    color: #FFC0CB;
+    font-size: 24px;
+    padding: 15px 30px;
     cursor: pointer;
-    padding: 15px;
-    border: 1px solid #DB7093; /* Светло-розовато-фиолетовый цвет для ответов */
-    border-radius: 10px;
-    transition: transform 0.3s, background-color 0.3s;
-    text-align: left; /* Выравниваем текст по левому краю */
-    background-color: #FFC0CB; /* Светло-розовато-фиолетовый фон для ответов */
-    color: #8B008B; /* Цвет текста для ответов */
+    border-radius: 25px;
+    transition: background-color 0.3s, color 0.3s;
+    animation: shimmer 2s infinite;
+    height: 60px; /* Установим одинаковую высоту для кнопок */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.answer:hover {
-    background-color: #FFB6C1; /* Светло-розовато-фиолетовый цвет при наведении */
+#startButton:hover, #finalButton:hover {
+    background-color: #FF69B4;
+    color: white;
+}
+
+@keyframes shimmer {
+    0% {
+        color: #FFC0CB;
+        border-color: #FFC0CB;
+    }
+    50% {
+        color: #FF69B4;
+        border-color: #FF69B4;
+    }
+    100% {
+        color: #FFC0CB;
+        border-color: #FFC0CB;
+    }
+}
+
+.container {
+    display: none; /* Это свойство должно изменяться на 'flex' в JavaScript */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Центрирование содержимого по горизонтали */
+    height: 100%;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 40px auto 0 auto; /* Центрирование контейнера на странице */
+    position: relative;
+}
+
+.question-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #333;
+    font-style: italic;
+    margin: 0;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+button.option {
+    background-color: #FFC0CB;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-style: italic;
+    flex: 1;
+    margin: 5px;
+}
+
+button.option:hover {
+    background-color: #FF69B4;
     transform: scale(1.05);
 }
 
-.answer.wrong {
+button.option:active {
+    transform: scale(0.95);
+}
+
+button.option.wrong {
     animation: wrongBlink 0.5s 3;
 }
 
-.answer.correct {
+button.option.correct {
     animation: correctBlick 0.5s 3;
 }
 
@@ -90,46 +140,45 @@ body, html {
     100% { background-color: #FFC0CB; }
 }
 
-/* Общие стили для изображений */
-#alexYesImage, #vladYesImage, #kostyaYesImage, #vovaYesImage, #alexEndImage, #vovaEndImage {
+#yesImage, #noImage {
     position: absolute;
-    height: 150px; /* Уменьшаем высоту изображений */
+    height: 200px;
     width: auto;
     z-index: 2;
     opacity: 0;
     pointer-events: none;
 }
 
-/* Стили и анимация для изображений */
-#alexYesImage, #vladYesImage, #kostyaYesImage, #vovaYesImage {
+#yesImage {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%) translateX(-200%);
 }
 
-#alexYesImage.slide-in-out, #vladYesImage.slide-in-out, #kostyaYesImage.slide-in-out, #vovaYesImage.slide-in-out {
+#yesImage.slide-in-out {
     animation: slideInLeft 4s ease-out forwards;
 }
 
-#alexEndImage, #vovaEndImage {
+#noImage {
     right: 50%;
     top: 50%;
     transform: translate(50%, -50%) translateX(200%);
 }
 
-#alexEndImage.slide-in-out, #vovaEndImage.slide-in-out {
+#noImage.slide-in-out {
     animation: slideInRight 4s ease-out forwards;
 }
 
-/* Определение анимаций */
 @keyframes slideInLeft {
     0% { transform: translate(-50%, -50%) translateX(-200%); opacity: 1; }
-    50% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
+    25% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
+    75% { transform: translate(-50%, -50%) translateX(0); opacity: 1; }
     100% { transform: translate(-50%, -50%) translateX(-200%); opacity: 0; }
 }
 
 @keyframes slideInRight {
     0% { transform: translate(50%, -50%) translateX(200%); opacity: 1; }
-    50% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
+    25% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
+    75% { transform: translate(50%, -50%) translateX(0); opacity: 1; }
     100% { transform: translate(50%, -50%) translateX(200%); opacity: 0; }
 }

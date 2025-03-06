@@ -2,30 +2,32 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Викторина</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="image-container">
-        <img id="start-leo" src="start_leo.png" alt="Start Leo">
-        <img id="buke" src="buke.png" alt="Buke" style="display: none;">
-        <img id="alexYesImage" src="alex_yes.png" alt="Alex Yes Image">
-        <img id="vladYesImage" src="vlad_yes.png" alt="Vlad Yes Image">
-        <img id="kostyaYesImage" src="kostya_yes.png" alt="Kostya Yes Image">
-        <img id="vovaYesImage" src="vova_yes.png" alt="Vova Yes Image">
-        <img id="alexEndImage" src="alex_end.png" alt="Alex End Image">
-        <img id="vovaEndImage" src="vova_end.png" alt="Vova End Image">
+    <div class="start-screen" id="startScreen">
+        <img src="start_leo.png" alt="Start Image">
     </div>
+    <div class="container" id="quizContent">
+        <div class="question-container">
+            <h2 id="questionText">Вопрос будет здесь</h2>
+        </div>
+        <div class="button-row">
+            <button class="option" data-answer="A">A) Вариант A</button>
+            <button class="option" data-answer="B">B) Вариант B</button>
+        </div>
+        <div class="button-row">
+            <button class="option" data-answer="C">C) Вариант C</button>
+            <button class="option" data-answer="D">D) Вариант D</button>
+        </div>
+    </div>
+    <img src="yes.jpg" alt="Yes Image" id="yesImage">
+    <img src="no.jpg" alt="No Image" id="noImage">
     <audio id="backgroundAudio" src="background.mp3" loop></audio>
     <audio id="errorAudio" src="error.mp3"></audio>
     <audio id="goodAudio" src="good.mp3"></audio>
-    <div id="quiz-container" style="display: none;">
-        <div id="question-box">
-            <div id="question"></div>
-        </div>
-        <div id="answers"></div>
-    </div>
     <script src="script.js"></script>
 </body>
 </html>
