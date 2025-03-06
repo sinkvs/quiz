@@ -1,6 +1,8 @@
 document.getElementById('start-image').addEventListener('dblclick', startQuiz);
 
 let currentQuestion = 0;
+let buttonsDisabled = false;
+
 const questions = [
     { question: "Какой продукт используют для приготовления бешамеля?", answers: ["Сметана", "Молоко", "Сливки"], correctAnswer: 2 },
     { question: "Какой оператор используется для выделения памяти под массив в языке C?", answers: ["free", "malloc", "realloc"], correctAnswer: 1 },
@@ -47,9 +49,14 @@ function showQuestion() {
         button.textContent = questions[currentQuestion].answers[index];
         button.onclick = () => checkAnswer(index);
     });
+
+    buttonsDisabled = false;
 }
 
 function checkAnswer(selectedAnswer) {
+    if (buttonsDisabled) return;
+
+    buttonsDisabled = true;
     const correctAnswer = questions[currentQuestion].correctAnswer;
     const feedbackImage = document.getElementById('feedback-image');
     feedbackImage.classList.remove('hidden');
@@ -79,6 +86,7 @@ function checkAnswer(selectedAnswer) {
             feedbackImage.classList.add('hidden');
             feedbackImage.style.animation = '';
             document.querySelectorAll('.answer-btn').forEach(button => button.classList.remove('blink-red'));
+            buttonsDisabled = false;
         }, 3000);
     }
 }
