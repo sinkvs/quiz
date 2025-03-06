@@ -90,7 +90,7 @@ body, html {
     100% { background-color: #FFC0CB; }
 }
 
-#yesImage, #noImage {
+#yesImage, #noImage, #oooImage {
     position: absolute;
     height: 200px;
     width: auto;
@@ -116,6 +116,16 @@ body, html {
 }
 
 #noImage.slide-in-out {
+    animation: slideInRight 2s ease-out forwards;
+}
+
+#oooImage {
+    right: -200px; /* Начальная позиция за пределами экрана */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#oooImage.slide-in-out {
     animation: slideInRight 2s ease-out forwards;
 }
 
