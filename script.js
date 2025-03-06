@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
     const startLeo = document.getElementById('start-leo');
     const buke = document.getElementById('buke');
@@ -10,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const goodAudio = document.getElementById('goodAudio');
     const yesImage = document.getElementById('yesImage');
     const noImage = document.getElementById('noImage');
-    const oooImage = document.getElementById('oooImage');
     const backgroundAudio = document.getElementById('backgroundAudio');
 
     const questions = [
@@ -142,6 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const answerElement = document.createElement('div');
             answerElement.classList.add('answer');
             answerElement.innerText = answer;
+            answerElement.dataset.answer = answer[0]; // Устанавливаем значение для dataset
             answerElement.addEventListener('click', () => checkAnswer(i));
             answersElement.appendChild(answerElement);
         });
@@ -149,19 +148,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkAnswer(selected) {
         const answerElements = document.querySelectorAll('.answer');
-        if (selected === questions[currentQuestion].correct) {
+        const correctAnswer = questions[currentQuestion].correct;
+
+        if (selected === correctAnswer) {
             goodAudio.play();
             answerElements[selected].classList.add('correct');
-            oooImage.style.opacity = 1;
-            oooImage.style.visibility = 'visible';
-            oooImage.classList.add('slide-in-out');
+            yesImage.style.opacity = 1;
+            yesImage.style.visibility = 'visible';
+            yesImage.classList.add('slide-in-out');
             setTimeout(() => {
-                oooImage.style.opacity = 0;
-                oooImage.style.visibility = 'hidden';
-                oooImage.classList.remove('slide-in-out');
+                yesImage.style.opacity = 0;
+                yesImage.style.visibility = 'hidden';
+                yesImage.classList.remove('slide-in-out');
                 currentQuestion++;
                 showQuestion(currentQuestion);
-            }, 2000);
+            }, 4000);
         } else {
             errorAudio.play();
             answerElements[selected].classList.add('wrong');
@@ -172,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 noImage.style.opacity = 0;
                 noImage.style.visibility = 'hidden';
                 noImage.classList.remove('slide-in-out');
-            }, 2000);
+            }, 4000);
         }
     }
 });
