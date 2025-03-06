@@ -15,11 +15,6 @@ function startQuiz() {
 }
 
 function showQuestion() {
-    if (currentQuestion >= questions.length) {
-        showFinishScreen();
-        return;
-    }
-
     const questionText = document.getElementById('question-text');
     questionText.textContent = questions[currentQuestion].question;
 
@@ -39,19 +34,29 @@ function checkAnswer(selectedAnswer) {
         feedbackImage.src = 'yes.jpg';
         feedbackImage.style.animation = 'slide-from-right 1s forwards';
         document.querySelectorAll('.answer-btn')[selectedAnswer - 1].classList.add('blink-green');
+
+        setTimeout(() => {
+            feedbackImage.classList.add('hidden');
+            feedbackImage.style.animation = '';
+            document.querySelectorAll('.answer-btn').forEach(button => button.classList.remove('blink-red', 'blink-green'));
+            currentQuestion++;
+            if (currentQuestion >= questions.length) {
+                showFinishScreen();
+            } else {
+                showQuestion();
+            }
+        }, 3000);
     } else {
         feedbackImage.src = 'no.jpg';
         feedbackImage.style.animation = 'slide-from-left 1s forwards';
         document.querySelectorAll('.answer-btn')[selectedAnswer - 1].classList.add('blink-red');
-    }
 
-    setTimeout(() => {
-        feedbackImage.classList.add('hidden');
-        feedbackImage.style.animation = '';
-        document.querySelectorAll('.answer-btn').forEach(button => button.classList.remove('blink-red', 'blink-green'));
-        currentQuestion++;
-        showQuestion();
-    }, 3000);
+        setTimeout(() => {
+            feedbackImage.classList.add('hidden');
+            feedbackImage.style.animation = '';
+            document.querySelectorAll('.answer-btn').forEach(button => button.classList.remove('blink-red'));
+        }, 3000);
+    }
 }
 
 function showFinishScreen() {
