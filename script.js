@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const goodAudio = document.getElementById('goodAudio');
     const yesImage = document.getElementById('yesImage');
     const noImage = document.getElementById('noImage');
+    const oooImage = document.getElementById('oooImage');
     const backgroundAudio = document.getElementById('backgroundAudio');
 
     const questions = [
@@ -151,9 +152,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (selected === questions[currentQuestion].correct) {
             goodAudio.play();
             answerElements[selected].classList.add('correct');
-            yesImage.classList.add('slide-in-out');
+            oooImage.classList.add('slide-in-out');
             setTimeout(() => {
-                yesImage.classList.remove('slide-in-out');
+                oooImage.classList.remove('slide-in-out');
                 currentQuestion++;
                 showQuestion(currentQuestion);
             }, 2000);
