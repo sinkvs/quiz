@@ -96,7 +96,16 @@ body, html {
     width: auto;
     z-index: 20; /* Убедимся, что изображения отображаются поверх всех элементов */
     opacity: 0;
+    visibility: hidden; /* Скрываем элемент, но он остается в потоке документа */
     pointer-events: none;
+    transition: opacity 0.5s ease-in-out; /* Плавный переход для opacity */
+}
+
+#yesImage.slide-in-out,
+#noImage.slide-in-out,
+#oooImage.slide-in-out {
+    opacity: 1;
+    visibility: visible; /* Делаем элемент видимым */
 }
 
 #yesImage {
@@ -105,28 +114,16 @@ body, html {
     transform: translateY(-50%);
 }
 
-#yesImage.slide-in-out {
-    animation: slideInLeft 2s ease-out forwards;
-}
-
 #noImage {
     right: -200px; /* Начальная позиция за пределами экрана */
     top: 50%;
     transform: translateY(-50%);
 }
 
-#noImage.slide-in-out {
-    animation: slideInRight 2s ease-out forwards;
-}
-
 #oooImage {
     right: -200px; /* Начальная позиция за пределами экрана */
     top: 50%;
     transform: translateY(-50%);
-}
-
-#oooImage.slide-in-out {
-    animation: slideInRight 2s ease-out forwards;
 }
 
 @keyframes slideInLeft {
