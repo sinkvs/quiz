@@ -152,8 +152,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (selected === questions[currentQuestion].correct) {
             goodAudio.play();
             answerElements[selected].classList.add('correct');
+            oooImage.style.opacity = 1;
+            oooImage.style.visibility = 'visible';
             oooImage.classList.add('slide-in-out');
             setTimeout(() => {
+                oooImage.style.opacity = 0;
+                oooImage.style.visibility = 'hidden';
                 oooImage.classList.remove('slide-in-out');
                 currentQuestion++;
                 showQuestion(currentQuestion);
@@ -161,8 +165,12 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             errorAudio.play();
             answerElements[selected].classList.add('wrong');
+            noImage.style.opacity = 1;
+            noImage.style.visibility = 'visible';
             noImage.classList.add('slide-in-out');
             setTimeout(() => {
+                noImage.style.opacity = 0;
+                noImage.style.visibility = 'hidden';
                 noImage.classList.remove('slide-in-out');
             }, 2000);
         }
