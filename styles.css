@@ -1,166 +1,70 @@
 body {
-    background-image: url('buke.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: 'Helvetica Neue', sans-serif;
-    overflow: hidden;
-    position: relative;
+    background-color: #f0f0f0;
 }
 
-.start-screen {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.start-screen img {
-    max-width: 100%;
-    height: auto;
-}
-
-.container {
+.hidden {
     display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
-    box-sizing: border-box;
-    margin: 40px auto 0 auto;
-    position: relative;
 }
 
-.question-container {
+#start-screen, #quiz-screen, #finish-screen {
     text-align: center;
-    margin-bottom: 20px;
-    border-radius: 25px;
+}
+
+#question-box {
+    background-color: white;
+    border-radius: 15px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
-h2 {
-    color: #333;
-    font-style: italic;
-    margin: 0;
-}
-
-.button-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-}
-
-button.option {
-    background-color: #FFC0CB;
-    border: none;
-    padding: 15px;
+.answer-btn {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 25px;
-    transition: background-color 0.3s, transform 0.3s;
-    font-style: italic;
-    flex: 1;
-    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
 }
 
-button.option:hover {
-    background-color: #FF69B4;
-    transform: scale(1.05);
+.answer-btn:hover {
+    background-color: #0056b3;
 }
 
-button.option:active {
-    transform: scale(0.95);
+.blink-red {
+    animation: blink-red 0.5s infinite;
 }
 
-button.option.wrong {
-    animation: wrongBlink 0.5s 3;
+.blink-green {
+    animation: blink-green 0.5s infinite;
 }
 
-button.option.correct {
-    animation: correctBlink 0.5s 3;
+@keyframes blink-red {
+    0% { background-color: red; }
+    50% { background-color: transparent; }
+    100% { background-color: red; }
 }
 
-@keyframes wrongBlink {
-    0% { background-color: #FFC0CB; }
-    50% { background-color: #FF6347; }
-    100% { background-color: #FFC0CB; }
+@keyframes blink-green {
+    0% { background-color: green; }
+    50% { background-color: transparent; }
+    100% { background-color: green; }
 }
 
-@keyframes correctBlink {
-    0% { background-color: #FFC0CB; }
-    50% { background-color: #32CD32; }
-    100% { background-color: #FFC0CB; }
-}
-
-#yesImage, #noImage {
+#feedback-image {
     position: absolute;
-    height: 200px;
-    width: auto;
-    z-index: 2;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#yesImage {
-    right: 0;
     top: 50%;
-    transform: translateY(-50%) translateX(200%);
-}
-
-#yesImage.slide-in-out {
-    animation: slideInRight 4s ease-out forwards;
-}
-
-#noImage {
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%) translateX(-200%);
-}
-
-#noImage.slide-in-out {
-    animation: slideInLeft 4s ease-out forwards;
-}
-
-@keyframes slideInRight {
-    0% { transform: translateY(-50%) translateX(200%); opacity: 1; }
-    25% { transform: translateY(-50%) translateX(0); opacity: 1; }
-    75% { transform: translateY(-50%) translateX(0); opacity: 1; }
-    100% { transform: translateY(-50%) translateX(200%); opacity: 0; }
-}
-
-@keyframes slideInLeft {
-    0% { transform: translateY(-50%) translateX(-200%); opacity: 1; }
-    25% { transform: translateY(-50%) translateX(0); opacity: 1; }
-    75% { transform: translateY(-50%) translateX(0); opacity: 1; }
-    100% { transform: translateY(-50%) translateX(-200%); opacity: 0; }
-}
-
-#finishImage {
-    position: absolute;
-    height: 200px;
-    width: auto;
-    z-index: 2;
-    opacity: 0;
-    pointer-events: none;
     left: 50%;
-    top: 50%;
     transform: translate(-50%, -50%);
-}
-
-#finishImage.show {
-    opacity: 1;
+    width: 100px;
 }
