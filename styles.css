@@ -63,11 +63,11 @@ body {
 }
 
 .blink-red {
-    animation: blink-red 0.5s infinite;
+    animation: blink-red 0.5s infinite !important;
 }
 
 .blink-green {
-    animation: blink-green 0.5s infinite;
+    animation: blink-green 0.5s infinite !important;
 }
 
 @keyframes blink-red {
